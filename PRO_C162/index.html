@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <title>Recorrido virtual</title>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+
+    <script src="js/Tour.js"></script>
+    <script src="js/cursorEvents.js"></script>
+    <script src="js/sideView.js"></script>
+  </head>
+  <body>
+    <a-scene id="main-scene">
+      
+
+      <a-sky id="main-container" radius="5000" color="#FF0000"></a-sky>
+
+      <!-- Contenedor de lugares -->
+      <a-entity id="places-container" tour cursor-listener></a-entity>
+      <a-entity id="side-view-container" place-side-view cursor-listener></a-entity>
+
+      <!-- Cámara -->
+      <a-camera id="camera" wasd-controls="enabled:false;">
+        <!-- Título de la aplicación -->
+        <a-entity
+          id="app-title"
+          position="0 0.73 -1"
+          text="font: exo2bold; align: center; width: 2; color: #FFFFFF; value: Es momento de viajar virtualmente!"
+        >
+          <a-entity
+            id="app-subtitle"
+            position="0 -0.1 0"
+            text="font: dejavu; align: center; width: 1.75; color: #FFFFFF; value: Viaja alrededor del mundo"
+          ></a-entity>
+        </a-entity>
+
+        <!-- Cursor -->
+        <a-entity
+        id="camera-cursor"
+        cursor
+        position="0 0 -1"
+        geometry="primitive:ring;radiusOuter:0.03;radiusInner:0.02"
+        material="color:#FFFFFF;shader:flat"
+        ></a-entity>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
